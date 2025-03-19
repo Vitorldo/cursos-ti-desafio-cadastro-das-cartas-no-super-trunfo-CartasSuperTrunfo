@@ -1,0 +1,201 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+// Variaveis de todas as cartas
+     char pais[10], pais2[10],codigo[10],codigo2[10],nome[50],nome2[50],escolha;
+     unsigned long int populacao, populacao2, pontos_turisticos, pontos_turisticos2;
+     float area,area2, pib, pib2, densidade_populacional, densidade_populacional2, pib_per_capta, pib_per_capta2;
+    
+    
+     
+     // Carta 01
+     printf ("Carta 01 \n");
+
+     printf ("Digite o nome do país:\n");
+     scanf ("%s", pais);
+     while (getchar() != '\n');// limpar buffer do scanf na quebra de linha
+
+     printf ("Digite o código da carta:\n");
+     scanf ("%s", codigo);
+     while (getchar() != '\n');
+     
+
+     printf ("Digite o nome da cidade: \n");
+     fgets(nome, sizeof(nome), stdin);
+     nome[strcspn(nome, "\n")] = '\0'; 
+
+     printf ("Digite a população:\n");
+     scanf ("%lu", &populacao);
+     while (getchar() != '\n');
+
+     printf ("digite a área KM2: \n");
+     scanf ("%f",&area);
+     while (getchar() != '\n');
+
+     printf ("digite o PIB: \n");
+     scanf ("%f",&pib);
+     while (getchar() != '\n');
+
+     printf ("Quantos pontos turisticos: \n");
+     scanf ("%d", &pontos_turisticos);
+     while (getchar() != '\n');
+
+    // carta 2
+     printf ("Carta 02 \n");
+
+     printf ("Digite o nome do país:\n");
+     scanf ("%s", pais2);
+     while (getchar() != '\n');// limpar buffer do scanf na quebra de linha
+
+     printf ("Digite o código da carta:\n");
+     scanf ("%s", codigo2);
+     while (getchar() != '\n');
+
+
+     printf ("Digite o nome da cidade: \n");
+     fgets(nome2, sizeof(nome2), stdin);
+     nome2[strcspn(nome2, "\n")] = '\0'; ;
+
+     printf ("Digite a população:\n");
+     scanf ("%lu", &populacao2);
+     while (getchar() != '\n');
+
+     printf ("digite a área KM2: \n");
+     scanf ("%f",&area2);
+     while (getchar() != '\n');
+
+     printf ("digite o PIB: \n");
+     scanf ("%f",&pib2);
+     while (getchar() != '\n');
+
+     printf ("Quantos pontos turisticos: \n");
+     scanf ("%d", &pontos_turisticos2);
+     while (getchar() != '\n');
+
+// resultado final 
+     float supertrunfo =  populacao + area + pib + pontos_turisticos + pib_per_capta - densidade_populacional / 1000;
+     float supertrunfo2 = populacao2 + area2 + pib2 + pontos_turisticos2 + pib_per_capta2 - densidade_populacional2/ 1000;
+// Apresentação Cartas
+  
+     printf ("***********************Carta 1********************** \n");
+     printf ("Estado: %s \n", pais);
+     printf ("Código da Carta: %s%s \n",pais,codigo);
+     printf ("Cidade: %s \n", nome );
+     printf ("População: %lu \n", populacao);
+     printf ("Área: %.3f km2\n", area*10);
+     printf ("PIB: %.2f Bilhões de Reais \n", pib);
+     printf ("Pontos Turísticos: %d \n", pontos_turisticos);
+     printf ("Densidade popupacional: %.3f hab/km2\n", populacao/(area*10));
+     printf ("PIB per capta: %.2f bilhões de reais\n", (pib*100)/populacao);
+     printf("SuperTrunfo: %.2f\n", supertrunfo);
+    
+
+     printf ("***********************Carta 2**********************\n");
+    
+     printf ("Estado: %s \n", pais2);
+     printf ("Código da Carta: %s%s \n",pais2,codigo2);
+     printf ("Cidade: %s \n", nome2 );
+     printf ("População: %lu \n", populacao2);
+     printf ("Área: %.3f km2\n", area2*10);
+     printf ("PIB: %.2f Bilhões de Reais \n", pib2);
+     printf ("Pontos Turísticos: %d \n", pontos_turisticos2);
+     printf ("Densidade popupacional: %.3f hab/km2\n", populacao2/(area2*10));
+     printf ("PIB per capta: %.2f bilhões de reais\n", (pib2*100)/populacao2);
+     printf("SuperTrunfo: %.2f\n", supertrunfo2);
+    
+    printf ("############## Escolha um dos atributos abaixo###############\n");
+    
+    printf ("1 - População\n");
+    printf ("2 - Área\n");
+    printf ("3 - PIB\n");   
+    printf ("4 - Pontos Turísticos\n");
+    printf ("5 - Densidade Populacional\n");
+    scanf ("%u", &escolha);
+    
+    switch (escolha)
+    {
+    case 1:
+      printf("voce escolheu população\n");
+       if (populacao > populacao2)
+       {
+           printf ("Carta %s com população de: %lu , venceu %s com população de: %lu \n" ,pais,populacao,pais2,populacao2);
+
+       }
+       else if (populacao < populacao2)
+       {
+           printf ("Carta %s com população de: %lu , venceu %s com população de: %lu \n" ,pais2,populacao2,pais,populacao);
+       }
+       else
+       {
+           printf ("Empate\n");
+       }
+       
+     break;
+     case 2:
+     printf("voce escolheu Área\n");
+        if (area > area2)
+        {
+            printf("Carta %s com população de: %f , venceu %s com população de: %f \n" ,pais,area,pais2,area2);
+        }
+        else if (area < area2)
+        {
+            printf ("Carta %s com população de: %f , venceu %s com população de: %f \n" ,pais2,area2,pais,area);
+        }
+        else
+        {
+            printf ("Empate\n");
+        }
+        break;
+    case 3:
+      printf("voce escolheu PIB\n");
+       if (pib > pib2)
+       {
+           printf ("Carta %s com população de: %f , venceu %s com população de: %f \n" ,pais,pib,pais2,pib2);
+       }
+       else if (pib < pib2)
+       {
+           printf ("Carta %s com população de: %f , venceu %s com população de: %f \n" ,pais2,pib2,pais,pib);
+       }
+       else
+       {
+           printf ("Empate\n");
+       }
+       break;
+       case 4:
+      printf("voce escolheu Pontos Turísticos\n");  
+       if (pontos_turisticos> pontos_turisticos2)
+       {
+           printf ("Carta %s com população de: %lu , venceu %s com população de: %lu \n" ,pais,pontos_turisticos,pais2,pontos_turisticos2);
+       }
+       else if (pontos_turisticos < pontos_turisticos2)
+       {
+           printf ("Carta %s com população de: %lu , venceu %s com população de: %lu \n" ,pais2,pontos_turisticos2,pais,pontos_turisticos);
+       }
+       else
+       {
+           printf ("Empate\n");
+       }
+       break;
+       case 5:
+        printf("voce escolheu Densidade Populacional\n");
+            if (densidade_populacional > densidade_populacional2)
+        {
+            printf ("Carta %s com população de: %f , venceu %s com população de: %f \n" ,pais2,densidade_populacional2,pais,densidade_populacional);
+        }
+        else if (densidade_populacional < densidade_populacional2)
+        {
+            printf ("Carta %s com população de: %f , venceu %s com população de: %f \n" ,pais,densidade_populacional,pais2,densidade_populacional2);
+        }
+        else
+        {
+            printf ("Empate\n");
+        }
+        break;
+
+        default: ("Escolha inválida\n");
+        
+    }
+    return 0;
+}
+
